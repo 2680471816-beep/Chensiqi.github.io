@@ -7,11 +7,4 @@ title: 数据分析作品集
 
 ## 📝 报告列表
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span style="color: #888;">({{ post.date | date: "%Y-%m-%d" }})</span>
-    </li>
-  {% endfor %}
-</ul>
+- [生存分析报告: Telco Customer Churn 生存分析 (2026-04-26)](/Chensiqi.github.io/2026/04/26/survival-report.html)
