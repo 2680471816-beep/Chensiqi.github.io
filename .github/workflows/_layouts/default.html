@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <script>
+        MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.7;
+            color: #333;
+        }
+        h1 { text-align: center; border-bottom: 3px solid #2c3e50; padding-bottom: 15px; color: #2c3e50; }
+        h2 { border-bottom: 2px solid #3498db; padding-bottom: 8px; color: #2980b9; margin-top: 40px; }
+        h3 { color: #2c3e50; }
+        .author-info { text-align: center; color: #666; margin-bottom: 30px; }
+        nav { text-align: center; margin-bottom: 30px; background: #f8f9fa; padding: 10px; border-radius: 5px; }
+        nav a { margin: 0 15px; text-decoration: none; color: #2980b9; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95em; }
+        th, td { border: 1px solid #ddd; padding: 10px 12px; text-align: left; }
+        th { background-color: #3498db; color: white; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .figure-caption { text-align: center; font-weight: bold; margin-top: 15px; color: #555; }
+        img { max-width: 100%; display: block; margin: 20px auto; }
+        ul, ol { margin: 10px 0; padding-left: 25px; }
+        footer { text-align: center; margin-top: 50px; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>数据分析作品集</h1>
+    <nav>
+        <a href="/">首页</a> | 
+        <a href="/about.html">关于我</a>
+    </nav>
+    <main>
+        {{ content }}
+    </main>
+    <footer>
+        <p>© 2026 陈思琪</p>
+    </footer>
+</body>
+</html>
