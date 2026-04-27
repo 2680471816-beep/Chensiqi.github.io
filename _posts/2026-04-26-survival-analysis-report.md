@@ -46,14 +46,14 @@ date: 2026-04-26
 
 清洗后得到3351条高质量Silver层数据，用于后续建模。清洗后数据的前5行关键字段已在代码输出中预览。
 
-<img src="../../images/Q2.1.png" alt="图1：数据清洗后前5行数据" style="max-width:100%; display:block; margin:20px auto;">
+<img src="https://2680471816-beep.github.io/Chensiqi.github.io/images/Q2.1.png" alt="图1：数据清洗后前5行数据" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图1：数据清洗后前5行数据</p>
 
 ## 4. Kaplan-Meier 生存分析
 
 代码使用 lifelines.KaplanMeierFitter 拟合 KM 模型，并绘制整体生存曲线。
 
-<img src="../../images/Q2.2.png" alt="图 2: Kaplan-Meier Survival Curve: Population Level" style="max-width:100%; display:block; margin:20px auto;">
+<img src="https://2680471816-beep.github.io/Chensiqi.github.io/images/Q2.2.png" alt="图 2: Kaplan-Meier Survival Curve: Population Level" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图 2: Kaplan-Meier Survival Curve: Population Level</p>
 
 **核心结果：**
