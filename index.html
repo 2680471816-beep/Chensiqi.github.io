@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的数据分析博客</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 在此处添加一些针对报告内部表格的简单样式优化 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ecf0f1;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>数据分析作品集</h1>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="blog-post">
+            <h2>生存分析报告: Telco Customer Churn 生存分析</h2>
+            <p class="meta">作者：陈思琪 | 发布日期：2026年4月26日</p>
+            
+            <section class="content">
+                <h3>1. 生存分析理论基础</h3>
+                <p>生存分析(Survival Analysis)是统计学中专门研究“从起始时刻到某一特定事件发生所持续时间”的方法论 [cite: 100]。在本项目中：</p>
+                <ul>
+                    <li><strong>起始时刻:</strong> 客户开始订阅电信服务的时刻 (tenure=0) [cite: 101]。</li>
+                    <li><strong>事件 (Event):</strong> 客户流失 (Churn=1) [cite: 102]。</li>
+                    <li><strong>时间变量 (Time):</strong> 客户已使用月数 (tenure) [cite: 103]。</li>
+                    <li><strong>删失 (Censoring):</strong> 部分客户在观测期结束时仍未流失，属于右删失数据 [cite: 104]。</li>
+                </ul>
+                <p>本案例采用了三种核心模型：Kaplan-Meier (KM) 非参数估计、Cox 比例风险模型以及加速失效时间模型 (AFT) [cite: 106, 110, 114]。</p>
+
+                <h3>2. 实验环境与数据清洗</h3>
+                <p>数据直接从 IBM 官方 GitHub 链接加载 [cite: 129]。我们使用 Spark DataFrame API 完成了大规模 ETL 操作，生成了 Silver 层数据 [cite: 123]。在清洗过程中，仅保留了月付合同且有互联网服务的客户，最终得到 3351 条高质量数据用于建模 [cite: 133, 134]。</p>
+
+                <h3>3. Kaplan-Meier 生存分析与洞见</h3>
+                <p>通过拟合 KM 模型，我们观察到整体客户留存的中位生存时间为 34.0 个月，意味着有一半的客户会在 34 个月内流失 [cite: 158]。</p>
+                <ul>
+                    <li><strong>趋势分析:</strong> 前 6 个月流失速率最快（曲线陡峭下降），是企业进行客户挽留和干预的关键窗口 [cite: 157, 159]。</li>
+                    <li><strong>服务差异:</strong> 开通了网络安全服务 (OnlineSecurity) 的客户，其生存概率显著高于未开通的客户 [cite: 164]。</li>
+                </ul>
+
+                <h3>4. Cox 比例风险模型与 AFT 模型</h3>
+                <p>在多变量建模阶段，Cox 模型识别出附加服务是降低流失风险的强保护因素 [cite: 198, 316]：</p>
+                <ul>
+                    <li>有家属的客户风险降低 28% [cite: 196]。</li>
+                    <li>开通在线备份 (OnlineBackup) 的客户风险降低 54% [cite: 196, 198]。</li>
+                    <li>开通技术支持 (TechSupport) 的客户风险降低 47% [cite: 196, 198]。</li>
+                </ul>
+                <p>由于部分变量（如互联网服务类型、在线备份等）违反了比例风险假设，我们进一步引入了 Log-Logistic AFT 模型 [cite: 209, 213, 271]。AFT 模型不仅印证了附加服务对延长客户留存时间的显著正向作用，其预测区分能力 (Concordance = 0.73) 也优于 Cox 模型 [cite: 275, 276]。</p>
+
+                <h3>5. 客户终身价值 (CLV) 与商业落地</h3>
+                <p>为了将统计结果转化为商业决策，我们构建了一个交互式仪表盘，将生存概率与月均利润结合，通过月化 IRR 进行折现，计算累计净现值 (Cumulative NPV) [cite: 122, 292, 293]。</p>
+                <p>默认画像下，前 12 个月的累计 NPV 达 236.77 美元 [cite: 306, 308]。企业可根据 Dashboard 输出的结果，对高风险客群采取针对性干预，从而最大化客户的终身价值 [cite: 318]。</p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 陈思琪. 部署于 GitHub Pages.</p>
+    </footer>
+</body>
+</html>
