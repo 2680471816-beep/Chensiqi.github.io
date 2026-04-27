@@ -9,4 +9,4 @@ title: 数据分析作品集
 
 - [生存分析报告: Telco Customer Churn 生存分析 (2026-04-26)](https://2680471816-beep.github.io/Chensiqi.github.io/2026/04/26/survival-analysis-report.html)
   
-[📥 下载生存分析完整代码 (ipynb)](https://2680471816-beep.github.io/Chensiqi.github.io/survival-analysis.ipynb)
+  [📥 下载生存分析完整代码 (ipynb)](https://2680471816-beep.github.io/Chensiqi.github.io/survival-analysis.ipynb)
