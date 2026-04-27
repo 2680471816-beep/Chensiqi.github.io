@@ -68,7 +68,7 @@ date: 2026-04-26
 
 为了识别不同服务特征对流失的影响，代码进一步按 OnlineSecurity（是否开通网络安全服务）分组绘制 KM 曲线，并使用 Log-rank 检验判断组间差异的统计显著性。在线安全服务的 KM 曲线清楚地显示，开通了网络安全服务（Yes）的客户生存概率显著高于未开通（No）的客户。
 
-<img src="https://2680471816-beep.github.io/Chensiqi.github.io/images/q2.3.png" alt="图 3: Kaplan-Meier by OnlineSecurity" style="max-width:100%; display:block; margin:20px auto;">
+<img src="https://2680471816-beep.github.io/Chensiqi.github.io/images/Q2.3.png" alt="图 3: Kaplan-Meier by OnlineSecurity" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图 3: Kaplan-Meier by OnlineSecurity</p>
 
 **Log-rank检验结果：**
