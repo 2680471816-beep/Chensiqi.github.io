@@ -46,14 +46,14 @@ date: 2026-04-26
 
 清洗后得到3351条高质量Silver层数据，用于后续建模。清洗后数据的前5行关键字段已在代码输出中预览。
 
-<img src="/Chensiqi.github.io/images/Q2.1.png" alt="图1：数据清洗后前5行数据" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.1.png" alt="图1：数据清洗后前5行数据" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图1：数据清洗后前5行数据</p>
 
 ## 4. Kaplan-Meier 生存分析
 
 代码使用 lifelines.KaplanMeierFitter 拟合 KM 模型，并绘制整体生存曲线。
 
-<img src="/Chensiqi.github.io/images/Q2.2.png" alt="图 2: Kaplan-Meier Survival Curve: Population Level" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.2.png" alt="图 2: Kaplan-Meier Survival Curve: Population Level" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图 2: Kaplan-Meier Survival Curve: Population Level</p>
 
 **核心结果：**
@@ -68,7 +68,7 @@ date: 2026-04-26
 
 为了识别不同服务特征对流失的影响，代码进一步按 OnlineSecurity（是否开通网络安全服务）分组绘制 KM 曲线，并使用 Log-rank 检验判断组间差异的统计显著性。在线安全服务的 KM 曲线清楚地显示，开通了网络安全服务（Yes）的客户生存概率显著高于未开通（No）的客户。
 
-<img src="/Chensiqi.github.io/images/q2.3.png" alt="图 3: Kaplan-Meier by OnlineSecurity" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/q2.3.png" alt="图 3: Kaplan-Meier by OnlineSecurity" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图 3: Kaplan-Meier by OnlineSecurity</p>
 
 **Log-rank检验结果：**
@@ -131,7 +131,7 @@ p值远小于0.001，说明是否开通在线安全服务对客户流失时间�
 
 所有变量均显著 (p &lt; 0.005)。其中OnlineBackup的保护效应最强，HR为0.46；TechSupport次之，HR为0.53。该结果表明：提供附加服务和家庭关怀可大幅降低流失风险。
 
-<img src="/Chensiqi.github.io/images/Q2.4.png" alt="图4：CoxPH Model - Hazard Ratios (95% CI)" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.4.png" alt="图4：CoxPH Model - Hazard Ratios (95% CI)" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图4：CoxPH Model - Hazard Ratios (95% CI)</p>
 
 Cox 模型的风险比图 (Hazard Ratios with 95% CI) 直观展示了各变量的效应方向和置信区间，所有变量的风险比均小于 1，属于保护因素。
@@ -151,16 +151,16 @@ Cox 模型的风险比图 (Hazard Ratios with 95% CI) 直观展示了各变量�
 
 检验输出的图示（含 rank-transformed time 和 km-transformed time 的平滑曲线）也提示部分变量的回归系数随时间不是完全恒定的。对于 InternetService、OnlineBackup 和 TechSupport 三个变量，模型建议采用分层（stratification）或引入时变协变量等方法进行修正。这也是引入 AFT 模型的重要原因之一。
 
-<img src="/Chensiqi.github.io/images/Q2.5.png" alt="图5: Scaled Schoenfeld residuals of 'Dependents_Yes'" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.5.png" alt="图5: Scaled Schoenfeld residuals of 'Dependents_Yes'" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图5: Scaled Schoenfeld residuals of 'Dependents_Yes'</p>
 
-<img src="/Chensiqi.github.io/images/Q2.6.png" alt="图6: Scaled Schoenfeld residuals of 'InternetService_DSL'" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.6.png" alt="图6: Scaled Schoenfeld residuals of 'InternetService_DSL'" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图6: Scaled Schoenfeld residuals of 'InternetService_DSL'</p>
 
-<img src="/Chensiqi.github.io/images/Q2.7.png" alt="图7: Scaled Schoenfeld residuals of 'OnlineBackup_Yes'" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.7.png" alt="图7: Scaled Schoenfeld residuals of 'OnlineBackup_Yes'" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图7: Scaled Schoenfeld residuals of 'OnlineBackup_Yes'</p>
 
-<img src="/Chensiqi.github.io/images/Q2.8.png" alt="图8: Scaled Schoenfeld residuals of 'TechSupport_Yes'" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.8.png" alt="图8: Scaled Schoenfeld residuals of 'TechSupport_Yes'" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图8: Scaled Schoenfeld residuals of 'TechSupport_Yes'</p>
 
 ### 5.4 AFT（加速失效时间）模型
@@ -187,7 +187,7 @@ Cox 模型的风险比图 (Hazard Ratios with 95% CI) 直观展示了各变量�
 
 AFT模型的结果进一步印证了附加服务（尤其是OnlineSecurity、OnlineBackup、TechSupport）对延长客户留存时间的显著正向作用。同时，对数-逻辑分布假设的检查图（Log-Logistic Check）显示数据的log-failure odds与log-time大致呈线性关系，说明分布假设基本合理。
 
-<img src="/Chensiqi.github.io/images/Q2.10.png" alt="图9：Log-Logistic Check" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.10.png" alt="图9：Log-Logistic Check" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图9：Log-Logistic Check</p>
 
 ### 5.5 客户终身价值（CLV）交互式仪表盘
@@ -205,7 +205,7 @@ $$\mathrm{Cumulative~NPV} = \sum_{t = 1}^{36}\mathrm{NPV}_{t}$$
 
 - 以柱状图（Cumulative NPV）和折线图（Predicted Retention Curve）展示。默认画像，全部特征 = 0，Annual IRR = 0.10 的前12个月计算结果见表7。
 
-<img src="/Chensiqi.github.io/images/Q2.11.png" alt="图10：Cumulative NPV & Predicted Retention Curve" style="max-width:100%; display:block; margin:20px auto;">
+<img src="../../images/Q2.11.png" alt="图10：Cumulative NPV & Predicted Retention Curve" style="max-width:100%; display:block; margin:20px auto;">
 <p class="figure-caption">图10：Cumulative NPV & Predicted Retention Curve</p>
 
 <table>
